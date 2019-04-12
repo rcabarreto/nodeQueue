@@ -2,37 +2,71 @@
 let instance = null;
 let id = 0;
 
-function Queue() {
-  if (instance) {
+// function Queue() {
+//   if (instance) {
+//     return instance;
+//   }
+
+//   instance = this;
+//   this.data = [];
+
+//   return instance;
+// }
+
+// Queue.prototype.add = function (record) {
+//   record.id = ++id;
+//   this.data.unshift(record);
+// };
+
+// Queue.prototype.remove = function () {
+//   return this.data.pop();
+// };
+
+// Queue.prototype.peek = function () {
+//   return this.data[0];
+// };
+
+// Queue.prototype.list = function () {
+//   return this.data;
+// };
+
+// Queue.prototype.count = function () {
+//   return this.data.length;
+// };
+
+
+// module.exports = Queue;
+
+class Queue {
+  constructor() {
+    if (instance) {
+      return instance;
+    }
+    instance = this;
+    this.data = [];
     return instance;
   }
 
-  instance = this;
-  this.queue = [];
+  add(record) {
+    record.id = ++id;
+    this.data.unshift(record);
+  }
 
-  return instance;
+  remove() {
+    return this.data.pop();
+  }
+
+  peek() {
+    return this.data[0];
+  }
+
+  list() {
+    return this.data;
+  }
+
+  count() {
+    return this.data.length;
+  }
 }
 
-Queue.prototype.add = function (n) {
-  n.id = ++id;
-  this.queue.unshift(n);
-};
-
-Queue.prototype.remove = function () {
-  return this.queue.pop();
-};
-
-Queue.prototype.peek = function () {
-  return this.queue[0];
-};
-
-Queue.prototype.list = function () {
-  return this.queue;
-};
-
-Queue.prototype.count = function () {
-  return this.queue.length;
-};
-
-
-module.exports = Queue;
+export default Queue;
