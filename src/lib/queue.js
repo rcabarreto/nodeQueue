@@ -37,6 +37,10 @@ let id = 0;
 
 // module.exports = Queue;
 
+/**
+ * @name Queue
+ * @description Returns the Queue
+ */
 class Queue {
   constructor() {
     if (instance) {
@@ -47,23 +51,41 @@ class Queue {
     return instance;
   }
 
+  /**
+   * @name add
+   *
+   * @param {*} record anything you want to save
+   */
   add(record) {
     record.id = ++id;
     this.data.unshift(record);
   }
 
+  /**
+   * remove
+   * @description gets te first element on the queue and returns
+   */
   remove() {
     return this.data.pop();
   }
 
+  /**
+   * @name peek Peeks the first value in the queue
+   */
   peek() {
     return this.data[0];
   }
 
+  /**
+   * @name list Returns a list of all the elements in the queue
+   */
   list() {
     return this.data;
   }
 
+  /**
+   * @name count Returns the number of elements in the queue
+   */
   count() {
     return this.data.length;
   }
